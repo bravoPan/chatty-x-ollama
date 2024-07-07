@@ -7,7 +7,7 @@
 
 Runbook
 
-0. start the ollama with any model
+0. start the ollama with any model (change the route.ts model name align with)
 1. npm install dependency
 2. start chatty by
 - npm run build
