@@ -14,5 +14,5 @@ Runbook
 - npm start
 
 TODO
-1. optimize output as plain text rather than json
+1. ~~optimize output as plain text rather than json~~ (done 07/06)
 2. refactor gemini api next components
