@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   console.log(userPrompt)
   const url = 'http://localhost:11434/api/generate';
   const data = {
-    'model': "phi3",
+    'model': "llama3",
     "prompt": userPrompt,
   };
 
@@ -22,9 +22,15 @@ export async function POST(req: NextRequest) {
     });
 
     const text = await response.text();
-    return NextResponse.json({
-      text,
+    const lines = text.trim().split('\n');
+    let result = '';
+
+    lines.forEach(line => {
+        const json = JSON.parse(line);
+        result += json.response;
     });
+
+    return NextResponse.json({text: result});
 
   } catch (error) {
     return NextResponse.json({
